@@ -1,0 +1,31 @@
+
+.codigo{
+ color: aliceblue;
+  background-color: rgba(0, 0, 0, 0.928);
+    position: absolute;
+  padding: 50px;
+  top: 500px;
+  right: 800px;
+  z-index: 200;
+}
+
+
+.nav-container{
+    background-color: rgba(5, 136, 33, 0.762)!important;
+   display:flex;
+   position: sticky;
+   top: 5px;
+   justify-content: space-evenly;
+z-index: 100;
+}
+
+.botenes-buscar{
+    margin: 30px;
+display: flex;
+
+}
+.borrar{
+    margin: 30px;
+    display: flex;
+    justify-self: end;
+}
