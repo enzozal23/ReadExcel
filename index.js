@@ -1,9 +1,7 @@
 const excelInput=document.getElementById('excel-input')
-console.log(excelInput)
 const inputCodigo= document.getElementById("codigo-busqueda")
 const botonBuscar= document.getElementById("buscar")
 const botonCerrar= document.querySelector("button-cerrar")
-const cargarFile= document.querySelector(".cargar-file")
 const excelEnLocal = JSON.parse(localStorage.getItem("excel"));
 const botonBorrar= document.querySelector(".borrar-excel")
 
@@ -98,7 +96,7 @@ const tbody = table.querySelector('tbody');
 tbody.appendChild(fragment);
 
 
-botonBuscar.addEventListener("click", function () {
+inputCodigo.addEventListener("change", function () {
    
     const codigoBuscado = parseInt(inputCodigo.value); 
 
@@ -112,10 +110,10 @@ for (let i = 0; i < excel.rows().count(); i++) {
         filasEncontradas.push(row);
     }
     
-    
+   
 }
 
-if (filasEncontradas.length > 0) {
+ if (filasEncontradas.length > 0) {
     mostrarCodigo.querySelector("span").innerHTML= `<div>
     
     <div>codigo: ${filasEncontradas[0].row[0]}</div>
@@ -130,13 +128,11 @@ if (filasEncontradas.length > 0) {
     
     ` 
     mostrarCodigo.querySelector("span").classList.add("codigo")
-} else {
+}
+
+else {
     mostrarCodigo.querySelector("span").innerHTML= `<div>
     no se encontro el codigo ${codigoBuscado}
-    <hr>
-    
-    sandri tu dilexia 🙄
-    
   </div>
     ` 
     mostrarCodigo.querySelector("span").classList.add("codigo")
@@ -155,7 +151,7 @@ const excel= new Excel(excelEnLocal)
 if(excel.content){
    excelPrinter.print(excel) 
 }else{
-     cargarFile.addEventListener('click', async function(){
+    excelInput.addEventListener('change', async function(){
 const content = await readXlsxFile(excelInput.files[0])
      const excel = new Excel(content)
         
